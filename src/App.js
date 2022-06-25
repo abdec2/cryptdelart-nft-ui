@@ -3,7 +3,7 @@ import Minter from "./components/minter";
 import Countdown, { zeroPad } from "react-countdown";
 
 function App() {
-  const mintDate = new Date("2022-08-11T00:00:00");
+  const mintDate = new Date("2022-08-15T00:00:00");
 
   const renderer = ({ days, hours, minutes, seconds }) => (
     <div className="flex items-center justify-center">
