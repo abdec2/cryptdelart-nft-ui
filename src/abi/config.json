@@ -1,0 +1,6 @@
+{
+    "CONTRACT_ADDRESS": "0xF92e89f4182C7f95f0D33530c7E0E7b7c9d6FB2b",
+    "NETWORK_ID": 80001, 
+    "BLOCKCHAIN_EXPLORER": "https://mumbai.polygonscan.com/",
+    "NETWORK" : "Mumbai testnet"
+}

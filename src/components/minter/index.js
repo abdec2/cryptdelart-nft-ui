@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import infoImage from './../../assets/bg.jpg'
+import categoriesOpt from './../../abi/categories.json'
 
 const mintCategory = [
     {
@@ -38,6 +39,8 @@ const mintCategory = [
 const Minter = () => {
     const [mintAmount, setMintAmount] = useState(1)
     const [selectCategory, setSelCat] = useState(null)
+    const [subCatOpt, setSubCatOpt] = useState(null)
+    const [selSubCat, setSubCat] = useState(null)
 
     const increment = () => {
         if (mintAmount < 5) {
@@ -57,6 +60,11 @@ const Minter = () => {
 
     const onChangeHandler = (e) => {
         e.target.value !== "" ? setSelCat(mintCategory[e.target.value]) : setSelCat(null)
+        e.target.value !== "" ? setSubCatOpt(categoriesOpt[e.target.value]) : setSubCatOpt(null)
+    }
+
+    const onChangeSubCat = (e) => {
+        e.target.value !== "" ? setSubCat(e.target.value) : setSubCat(null)
     }
 
   return (
@@ -71,7 +79,7 @@ const Minter = () => {
                 </div>
             </div>
 
-            <div className='p-3 mb-8 border border-white rounded-xl bg-white bg-opacity-20 flex items-center justify-between'>
+            {/* <div className='p-3 mb-8 border border-white rounded-xl bg-white bg-opacity-20 flex items-center justify-between'>
                 <div className='flex items-center justify-start space-x-4'>
                     <div className='cursor-pointer' onClick={decrement}>
                         <svg  className='w-3 fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z"/></svg>
@@ -84,13 +92,23 @@ const Minter = () => {
                     </div>
                 </div>
                 <button className='uppercase bg-white py-[5px] px-[15px] text-black text-sm font-normal shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' onClick={setMaxVal}>Set Max</button>
-            </div>
+            </div> */}
 
             <div className='mb-8'>
                 <select className='p-3 h-[50px] border border-white rounded-xl bg-white bg-opacity-20 w-full' onChange={onChangeHandler}>
                     <option className='text-black' value="">Select Category</option>
                     {mintCategory.map((item, i) => (
                         <option key={i} className='text-black' value={i}>{item.label} mint : {item.price} matic</option>
+                    ))}
+                    
+                </select>
+            </div>
+
+            <div className='mb-8'>
+                <select className='p-3 h-[50px] border border-white rounded-xl bg-white bg-opacity-20 w-full' onChange={onChangeSubCat}>
+                    <option className='text-black' value="">Select Category</option>
+                    {subCatOpt && subCatOpt.map((item, i) => (
+                        <option key={i} className='text-black' value={item.value}>{item.label}</option>
                     ))}
                     
                 </select>
