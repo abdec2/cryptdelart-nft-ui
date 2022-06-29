@@ -213,52 +213,52 @@
         {
             "tokenId": "41",
             "value" : "41",
-            "label" : "Character 1"
+            "label" : "Character 9 exotic swim"
         }, 
         {
             "tokenId": "42",
             "value" : "42",
-            "label" : "Character 2"
+            "label" : "Character 9 exotic sleepwear"
         }, 
         {
             "tokenId": "43",
             "value" : "43",
-            "label" : "Character 3"
+            "label" : "Character 9 exotic sport"
         }, 
         {
             "tokenId": "44",
             "value" : "44",
-            "label" : "Character 4"
+            "label" : "Character 9 exotic casual"
         }, 
         {
             "tokenId": "45",
             "value" : "45",
-            "label" : "Character 5"
+            "label" : "Character 9 exotic elegant"
         }, 
         {
             "tokenId": "46",
             "value" : "46",
-            "label" : "Character 6"
+            "label" : "Character 10 exotic swim"
         }, 
         {
             "tokenId": "47",
             "value" : "47",
-            "label" : "Character 7"
+            "label" : "Character 10 exotic sleepwear"
         }, 
         {
             "tokenId": "48",
             "value" : "48",
-            "label" : "Character 8"
+            "label" : "Character 10 exotic sport"
         }, 
         {
             "tokenId": "49",
             "value" : "49",
-            "label" : "Character 9"
+            "label" : "Character 10 exotic casual"
         }, 
         {
             "tokenId": "50",
             "value" : "50",
-            "label" : "Character 10"
+            "label" : "Character 10 exotic elegant"
         }
     ]
 
