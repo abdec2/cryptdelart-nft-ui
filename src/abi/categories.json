@@ -249,6 +249,16 @@
             "tokenId": "48",
             "value" : "48",
             "label" : "Character 8"
+        }, 
+        {
+            "tokenId": "49",
+            "value" : "49",
+            "label" : "Character 9"
+        }, 
+        {
+            "tokenId": "50",
+            "value" : "50",
+            "label" : "Character 10"
         }
     ]
 
