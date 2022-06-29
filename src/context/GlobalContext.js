@@ -6,9 +6,24 @@ import { AppReducer } from './AppReducer'
 const initialState = {
     account: null,
     web3Provider: null,
-    blockChainData: {
-        
+    presale: true,
+    price: {
+        "0" : 600,
+        "1" : 1000,
+        "2" : 1500,
+        "3" : 3000,
+        "4" : 10000,
+        "5" : 100000
+    }, 
+    presalePrice: {
+        "0" : 480,
+        "1" : 800,
+        "2" : 1200,
+        "3" : 2400,
+        "4" : 8000,
+        "5" : 80000
     }
+    
 }
 
 export const GlobalContext = createContext(initialState)
@@ -28,13 +43,37 @@ export const GlobalProvider = ({ children }) => {
         })
     }
 
+    const updatePresale = (presale) => {
+        dispatch({
+            type: 'UPDATE_PRESALE',
+            payload: presale
+        })
+    }
+
+    const updatePrice = (price) => {
+        dispatch({
+            type: 'UPDATE_PRICE', 
+            payload: price
+        })
+    } 
+
+    const updatePresalePrice = (price) => {
+        dispatch({
+            type: 'UPDATE_PRESALE_PRICE', 
+            payload: price
+        })
+    } 
+
 
     return (
         <GlobalContext.Provider value={
             {
                 ...state,
                 updateAccount,
-                updateWeb3Provider
+                updateWeb3Provider,
+                updatePresale,
+                updatePrice,
+                updatePresalePrice
                 
             }
         }

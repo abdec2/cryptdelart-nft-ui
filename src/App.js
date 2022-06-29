@@ -1,9 +1,17 @@
 import HeaderComponent from "./components/header";
 import Minter from "./components/minter";
 import Countdown, { zeroPad } from "react-countdown";
+import AlertBox from './components/AlertBox'
+import { useState } from "react";
+import { useBlockChainData } from "./hooks/loadBlockchainData";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
   const mintDate = new Date("2022-08-15T00:00:00");
+  const [error, setError] = useState(false);
+  const [errMsg, setErrMsg] = useState('');
+  const [dataLoading, setDataLoading] = useState(false)
+  useBlockChainData(setDataLoading)
 
   const renderer = ({ days, hours, minutes, seconds }) => (
     <div className="flex items-center justify-center">
@@ -29,8 +37,9 @@ function App() {
 
   return (
     <div className="bg-bg-image min-h-screen bg-no-repeat bg-cover bg-center font-saira">
+      <LoadingScreen dataLoading={dataLoading} />
       <div className="container max-w-[1080px] mx-auto">
-        <HeaderComponent />
+        <HeaderComponent setError={setError} setErrMsg={setErrMsg} />
         <div className="flex flex-col md:flex-row items-center justify-center">
           <div className="w-full  md:w-1/2 mb-11 md:mb-0">
             <p className="text-white text-center font-semibold text-lg">Minting will Open in:</p>
@@ -44,6 +53,7 @@ function App() {
           </div>
         </div>
       </div>
+      {error && (<AlertBox msg={errMsg} setError={setError} setErrMsg={setErrMsg} />)}
     </div>
   );
 }

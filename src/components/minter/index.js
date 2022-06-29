@@ -1,46 +1,63 @@
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import infoImage from './../../assets/bg.jpg'
 import categoriesOpt from './../../abi/categories.json'
+import { GlobalContext } from '../../context/GlobalContext';
+import { ethers } from "ethers"; 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import CONFIG from './../../abi/config.json'
+import ABI from './../../abi/abi.json'
 
-const mintCategory = [
-    {
-        label: 'Swimsuit',
-        value: '0', 
-        price: '600'
-    },
-    {
-        label: 'Sleepwear',
-        value: '1', 
-        price: '1000'
-    },
-    {
-        label: 'Sports wear',
-        value: '2', 
-        price: '1500'
-    },
-    {
-        label: 'Casual Style',
-        value: '3', 
-        price: '3000'
-    },
-    {
-        label: 'Elegant Style',
-        value: '4', 
-        price: '10000'
-    },
-    {
-        label: 'Exotic Style',
-        value: '5', 
-        price: '100000'
-    }
-    
-];
+const MySwal = withReactContent(Swal)
+
 
 const Minter = () => {
+    const {presale, price, presalePrice, account, web3Provider} = useContext(GlobalContext)
     const [mintAmount, setMintAmount] = useState(1)
     const [selectCategory, setSelCat] = useState(null)
     const [subCatOpt, setSubCatOpt] = useState(null)
     const [selSubCat, setSubCat] = useState(null)
+    const [loading, setLoading] = useState(false)
+
+    const mintCategory = [
+        {
+            label: 'Swimsuit',
+            value: '0', 
+            price: ethers.utils.formatEther(price["0"]), 
+            presale: ethers.utils.formatEther(presalePrice["0"])
+        },
+        {
+            label: 'Sleepwear',
+            value: '1', 
+            price: ethers.utils.formatEther(price["1"]),
+            presale: ethers.utils.formatEther(presalePrice["1"])
+        },
+        {
+            label: 'Sports wear',
+            value: '2', 
+            price: ethers.utils.formatEther(price["2"]),
+            presale: ethers.utils.formatEther(presalePrice["2"])
+        },
+        {
+            label: 'Casual Style',
+            value: '3', 
+            price: ethers.utils.formatEther(price["3"]),
+            presale: ethers.utils.formatEther(presalePrice["3"])
+        },
+        {
+            label: 'Elegant Style',
+            value: '4', 
+            price: ethers.utils.formatEther(price["4"]),
+            presale: ethers.utils.formatEther(presalePrice["4"])
+        },
+        {
+            label: 'Exotic Style',
+            value: '5', 
+            price: ethers.utils.formatEther(price["5"]),
+            presale: ethers.utils.formatEther(presalePrice["5"])
+        }
+        
+    ];
 
     const increment = () => {
         if (mintAmount < 5) {
@@ -61,10 +78,59 @@ const Minter = () => {
     const onChangeHandler = (e) => {
         e.target.value !== "" ? setSelCat(mintCategory[e.target.value]) : setSelCat(null)
         e.target.value !== "" ? setSubCatOpt(categoriesOpt[e.target.value]) : setSubCatOpt(null)
+        setSubCat(null)
     }
 
     const onChangeSubCat = (e) => {
         e.target.value !== "" ? setSubCat(e.target.value) : setSubCat(null)
+    }
+
+    const mint = async (e) => {
+        try {
+            e.preventDefault()
+            setLoading(true)
+            const _category = selectCategory
+            const tokenId = selSubCat
+            const nftPrice = presale ? _category.presale : _category.price;
+            if(!account) {
+                setLoading(false)
+                MySwal.fire({
+                    icon: 'error',
+                    title: 'Please connect your wallet',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                
+                return
+            }
+            console.log(_category)
+            console.log(account)
+            console.log(tokenId)
+            console.log(nftPrice)
+
+            const signer = web3Provider.getSigner()
+            const contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS, ABI, signer)
+            const estimateGas = await contract.estimateGas.mint(_category.value, tokenId, {value: ethers.utils.parseEther(nftPrice)})
+            console.log(estimateGas.toString())
+            const tx = {
+                gasLimit: estimateGas.toString(),
+                value: ethers.utils.parseEther(nftPrice)
+            }
+
+            const minttx = await contract.mint(_category.value, tokenId, tx)
+            await minttx.wait()
+            setLoading(false)
+        } catch(e) {
+            console.log(e)
+            MySwal.fire({
+                icon: 'error',
+                text: "Something went wrong",
+                showConfirmButton: true,
+                
+            })
+            setLoading(false)
+        }
+
     }
 
   return (
@@ -75,7 +141,7 @@ const Minter = () => {
                 <img src={infoImage} alt="" className='w-[82px] h-[82px] rounded-[10px]'/>
                 <div>
                     <p className='text-right'>Price per NFT</p>
-                    <h5 className='text-2xl'>{selectCategory ? selectCategory.price : 0} MATIC Each</h5>
+                    <h5 className='text-2xl'>{selectCategory ? (presale ? selectCategory.presale : selectCategory.price) : 0} MATIC Each</h5>
                 </div>
             </div>
 
@@ -93,20 +159,20 @@ const Minter = () => {
                 </div>
                 <button className='uppercase bg-white py-[5px] px-[15px] text-black text-sm font-normal shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' onClick={setMaxVal}>Set Max</button>
             </div> */}
-
+            <form onSubmit={mint}>
             <div className='mb-8'>
-                <select className='p-3 h-[50px] border border-white rounded-xl bg-white bg-opacity-20 w-full' onChange={onChangeHandler}>
+                <select className='p-3 h-[50px] border border-white rounded-xl bg-white bg-opacity-20 w-full' onChange={onChangeHandler} required>
                     <option className='text-black' value="">Select Category</option>
                     {mintCategory.map((item, i) => (
-                        <option key={i} className='text-black' value={i}>{item.label} mint : {item.price} matic</option>
+                        <option key={i} className='text-black' value={i}>{item.label} mint : {presale ? item.presale : item.price} matic</option>
                     ))}
                     
                 </select>
             </div>
 
             <div className='mb-8'>
-                <select className='p-3 h-[50px] border border-white rounded-xl bg-white bg-opacity-20 w-full' onChange={onChangeSubCat}>
-                    <option className='text-black' value="">Select Category</option>
+                <select className='p-3 h-[50px] border border-white rounded-xl bg-white bg-opacity-20 w-full' value={(selSubCat) ? selSubCat : ''} onChange={onChangeSubCat} required>
+                    <option className='text-black' value="">Select Character</option>
                     {subCatOpt && subCatOpt.map((item, i) => (
                         <option key={i} className='text-black' value={item.value}>{item.label}</option>
                     ))}
@@ -116,12 +182,23 @@ const Minter = () => {
 
             <div className='p-3 mb-8 border border-white border-r-0 border-l-0 flex items-center justify-between'>
                 <p className='text-xl my-2'>Total</p>
-                <h5 className='text-xl font-semibold my-2'>{selectCategory ? parseFloat(selectCategory.price) * parseInt(mintAmount) : 0.0} MATIC</h5>
+                <h5 className='text-xl font-semibold my-2'>{selectCategory ? (presale ? parseFloat(selectCategory.presale) * parseInt(mintAmount) : parseFloat(selectCategory.price) * parseInt(mintAmount)) : 0.0} MATIC</h5>
             </div>
 
             <div className='mb-8'>
-                <button className='uppercase bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]'>Mint</button>
+                {
+                    loading ? (
+                        <button disabled className='uppercase flex items-center justify-center mx-auto bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]'>
+                            <svg className="animate-spin h-5 w-5 mr-2 fill-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M222.7 32.15C227.7 49.08 218.1 66.9 201.1 71.94C121.8 95.55 64 169.1 64 255.1C64 362 149.1 447.1 256 447.1C362 447.1 448 362 448 255.1C448 169.1 390.2 95.55 310.9 71.94C293.9 66.9 284.3 49.08 289.3 32.15C294.4 15.21 312.2 5.562 329.1 10.6C434.9 42.07 512 139.1 512 255.1C512 397.4 397.4 511.1 256 511.1C114.6 511.1 0 397.4 0 255.1C0 139.1 77.15 42.07 182.9 10.6C199.8 5.562 217.6 15.21 222.7 32.15V32.15z" /></svg>
+                            Minting
+                        </button>
+                    ) : (
+                        <button className='uppercase bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' type="submit">Mint</button>
+                    )
+                }
+                
             </div>
+            </form>
 
             <div className='helptxt'>
                 <p className=''>ADD POLYGON NETWORK</p>
