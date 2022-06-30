@@ -3,262 +3,262 @@
         {
             "tokenId": "1",
             "value" : "1",
-            "label" : "Character 1"
+            "label" : "African Female"
         }, 
         {
             "tokenId": "2",
             "value" : "2",
-            "label" : "Character 2"
+            "label" : "Mix Female"
         }, 
         {
             "tokenId": "3",
             "value" : "3",
-            "label" : "Character 3"
+            "label" : "White Female"
         }, 
         {
             "tokenId": "4",
             "value" : "4",
-            "label" : "Character 4"
+            "label" : "Asian Female"
         }, 
         {
             "tokenId": "5",
             "value" : "5",
-            "label" : "Character 5"
+            "label" : "African Male"
         }, 
         {
             "tokenId": "6",
             "value" : "6",
-            "label" : "Character 6"
+            "label" : "Mix Male"
         }, 
         {
             "tokenId": "7",
             "value" : "7",
-            "label" : "Character 7"
+            "label" : "White Male"
         }, 
         {
             "tokenId": "8",
             "value" : "8",
-            "label" : "Character 8"
+            "label" : "Asian Male"
         }
     ], 
     "1": [
         {
             "tokenId": "9",
             "value" : "9",
-            "label" : "Character 1"
+            "label" : "African Female"
         }, 
         {
             "tokenId": "10",
             "value" : "10",
-            "label" : "Character 2"
+            "label" : "Mix Female"
         }, 
         {
             "tokenId": "11",
             "value" : "11",
-            "label" : "Character 3"
+            "label" : "White Female"
         }, 
         {
             "tokenId": "12",
             "value" : "12",
-            "label" : "Character 4"
+            "label" : "Asian Female"
         }, 
         {
             "tokenId": "13",
             "value" : "13",
-            "label" : "Character 5"
+            "label" : "African Male"
         }, 
         {
             "tokenId": "14",
             "value" : "14",
-            "label" : "Character 6"
+            "label" : "Mix Male"
         }, 
         {
             "tokenId": "15",
             "value" : "15",
-            "label" : "Character 7"
+            "label" : "White Male"
         }, 
         {
             "tokenId": "16",
             "value" : "16",
-            "label" : "Character 8"
+            "label" : "Asian Male"
         }
     ],
     "2": [
         {
             "tokenId": "17",
             "value" : "17",
-            "label" : "Character 1"
+            "label" : "African Female"
         }, 
         {
             "tokenId": "18",
             "value" : "18",
-            "label" : "Character 2"
+            "label" : "Mix Female"
         }, 
         {
             "tokenId": "19",
             "value" : "19",
-            "label" : "Character 3"
+            "label" : "White Female"
         }, 
         {
             "tokenId": "20",
             "value" : "20",
-            "label" : "Character 4"
+            "label" : "Asian Female"
         }, 
         {
             "tokenId": "21",
             "value" : "21",
-            "label" : "Character 5"
+            "label" : "African Male"
         }, 
         {
             "tokenId": "22",
             "value" : "22",
-            "label" : "Character 6"
+            "label" : "Mix Male"
         }, 
         {
             "tokenId": "23",
             "value" : "23",
-            "label" : "Character 7"
+            "label" : "White Male"
         }, 
         {
             "tokenId": "24",
             "value" : "24",
-            "label" : "Character 8"
+            "label" : "Asian Male"
         }
     ],
     "3": [
         {
             "tokenId": "25",
             "value" : "25",
-            "label" : "Character 1"
+            "label" : "African Female"
         }, 
         {
             "tokenId": "26",
             "value" : "26",
-            "label" : "Character 2"
+            "label" : "Mix Female"
         }, 
         {
             "tokenId": "27",
             "value" : "27",
-            "label" : "Character 3"
+            "label" : "White Female"
         }, 
         {
             "tokenId": "28",
             "value" : "28",
-            "label" : "Character 4"
+            "label" : "Asian Female"
         }, 
         {
             "tokenId": "29",
             "value" : "29",
-            "label" : "Character 5"
+            "label" : "African Male"
         }, 
         {
             "tokenId": "30",
             "value" : "30",
-            "label" : "Character 6"
+            "label" : "Mix Male"
         }, 
         {
             "tokenId": "31",
             "value" : "31",
-            "label" : "Character 7"
+            "label" : "White Male"
         }, 
         {
             "tokenId": "32",
             "value" : "32",
-            "label" : "Character 8"
+            "label" : "Asian Male"
         }
     ],
     "4": [
         {
             "tokenId": "33",
             "value" : "33",
-            "label" : "Character 1"
+            "label" : "African Female"
         }, 
         {
             "tokenId": "34",
             "value" : "34",
-            "label" : "Character 2"
+            "label" : "Mix Female"
         }, 
         {
             "tokenId": "35",
             "value" : "35",
-            "label" : "Character 3"
+            "label" : "White Female"
         }, 
         {
             "tokenId": "36",
             "value" : "36",
-            "label" : "Character 4"
+            "label" : "Asian Female"
         }, 
         {
             "tokenId": "37",
             "value" : "37",
-            "label" : "Character 5"
+            "label" : "African Male"
         }, 
         {
             "tokenId": "38",
             "value" : "38",
-            "label" : "Character 6"
+            "label" : "Mix Male"
         }, 
         {
             "tokenId": "39",
             "value" : "39",
-            "label" : "Character 7"
+            "label" : "White Male"
         }, 
         {
             "tokenId": "40",
             "value" : "40",
-            "label" : "Character 8"
+            "label" : "Asian Male"
         }
     ],
     "5": [
         {
             "tokenId": "41",
             "value" : "41",
-            "label" : "Character 9 exotic swim"
+            "label" : "Supernatural Female Exotic Swimsuit"
         }, 
         {
             "tokenId": "42",
             "value" : "42",
-            "label" : "Character 9 exotic sleepwear"
+            "label" : "Supernatural Female Exotic Sleepwear"
         }, 
         {
             "tokenId": "43",
             "value" : "43",
-            "label" : "Character 9 exotic sport"
+            "label" : "Supernatural Female Exotic Sport"
         }, 
         {
             "tokenId": "44",
             "value" : "44",
-            "label" : "Character 9 exotic casual"
+            "label" : "Supernatural Female Exotic Casual"
         }, 
         {
             "tokenId": "45",
             "value" : "45",
-            "label" : "Character 9 exotic elegant"
+            "label" : "Supernatural Female Exotic Elegant"
         }, 
         {
             "tokenId": "46",
             "value" : "46",
-            "label" : "Character 10 exotic swim"
+            "label" : "Supernatural Male Exotic Swimsuit"
         }, 
         {
             "tokenId": "47",
             "value" : "47",
-            "label" : "Character 10 exotic sleepwear"
+            "label" : "Supernatural Male Exotic Sleepwear"
         }, 
         {
             "tokenId": "48",
             "value" : "48",
-            "label" : "Character 10 exotic sport"
+            "label" : "Supernatural Male Exotic Sport"
         }, 
         {
             "tokenId": "49",
             "value" : "49",
-            "label" : "Character 10 exotic casual"
+            "label" : "Supernatural Male Exotic Casual"
         }, 
         {
             "tokenId": "50",
             "value" : "50",
-            "label" : "Character 10 exotic elegant"
+            "label" : "Supernatural Male Exotic Elegant"
         }
     ]
 
