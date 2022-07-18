@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'bg-image': "url('./assets/bg.jpg')",
+        'bg-image': "url('./assets/bg.jpeg')",
       }, 
       fontFamily: {
         'saira': ['Saira', ...defaultTheme.fontFamily.sans],

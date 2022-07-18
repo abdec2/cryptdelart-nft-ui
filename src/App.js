@@ -36,7 +36,7 @@ function App() {
   );
 
   return (
-    <div className="bg-bg-image min-h-screen bg-no-repeat bg-cover bg-center font-saira">
+    <div className="bg-bg-image min-h-screen bg-no-repeat bg-cover bg-top font-saira">
       <LoadingScreen dataLoading={dataLoading} />
       <div className="container max-w-[1080px] mx-auto">
         <HeaderComponent setError={setError} setErrMsg={setErrMsg} />

@@ -23,39 +23,41 @@ const Minter = () => {
         {
             label: 'Swimsuit',
             value: '0', 
-            price: ethers.utils.formatEther(price["0"]), 
-            presale: ethers.utils.formatEther(presalePrice["0"])
+            price: 0.2, 
+            presale: 0.2
+            // price: ethers.utils.formatEther(price["0"]), 
+            // presale: ethers.utils.formatEther(presalePrice["0"])
         },
-        {
-            label: 'Sleepwear',
-            value: '1', 
-            price: ethers.utils.formatEther(price["1"]),
-            presale: ethers.utils.formatEther(presalePrice["1"])
-        },
-        {
-            label: 'Sports wear',
-            value: '2', 
-            price: ethers.utils.formatEther(price["2"]),
-            presale: ethers.utils.formatEther(presalePrice["2"])
-        },
-        {
-            label: 'Casual Style',
-            value: '3', 
-            price: ethers.utils.formatEther(price["3"]),
-            presale: ethers.utils.formatEther(presalePrice["3"])
-        },
-        {
-            label: 'Elegant Style',
-            value: '4', 
-            price: ethers.utils.formatEther(price["4"]),
-            presale: ethers.utils.formatEther(presalePrice["4"])
-        },
-        {
-            label: 'Exotic Style',
-            value: '5', 
-            price: ethers.utils.formatEther(price["5"]),
-            presale: ethers.utils.formatEther(presalePrice["5"])
-        }
+        // {
+        //     label: 'Sleepwear',
+        //     value: '1', 
+        //     price: ethers.utils.formatEther(price["1"]),
+        //     presale: ethers.utils.formatEther(presalePrice["1"])
+        // },
+        // {
+        //     label: 'Sports wear',
+        //     value: '2', 
+        //     price: ethers.utils.formatEther(price["2"]),
+        //     presale: ethers.utils.formatEther(presalePrice["2"])
+        // },
+        // {
+        //     label: 'Casual Style',
+        //     value: '3', 
+        //     price: ethers.utils.formatEther(price["3"]),
+        //     presale: ethers.utils.formatEther(presalePrice["3"])
+        // },
+        // {
+        //     label: 'Elegant Style',
+        //     value: '4', 
+        //     price: ethers.utils.formatEther(price["4"]),
+        //     presale: ethers.utils.formatEther(presalePrice["4"])
+        // },
+        // {
+        //     label: 'Exotic Style',
+        //     value: '5', 
+        //     price: ethers.utils.formatEther(price["5"]),
+        //     presale: ethers.utils.formatEther(presalePrice["5"])
+        // }
         
     ];
 
@@ -141,7 +143,7 @@ const Minter = () => {
                 <img src={infoImage} alt="" className='w-[82px] h-[82px] rounded-[10px]'/>
                 <div>
                     <p className='text-right'>Price per NFT</p>
-                    <h5 className='text-2xl'>{selectCategory ? (presale ? selectCategory.presale : selectCategory.price) : 0} MATIC Each</h5>
+                    <h5 className='text-2xl'>{selectCategory ? (presale ? selectCategory.presale : selectCategory.price) : 0} ETH Each</h5>
                 </div>
             </div>
 
@@ -164,7 +166,7 @@ const Minter = () => {
                 <select className='p-3 h-[50px] border border-white rounded-xl bg-white bg-opacity-20 w-full' onChange={onChangeHandler} required>
                     <option className='text-black' value="">Select Category</option>
                     {mintCategory.map((item, i) => (
-                        <option key={i} className='text-black' value={i}>{item.label} mint : {presale ? item.presale : item.price} matic</option>
+                        <option key={i} className='text-black' value={i}>{item.label} mint : {presale ? item.presale : item.price} ETH</option>
                     ))}
                     
                 </select>
@@ -182,7 +184,7 @@ const Minter = () => {
 
             <div className='p-3 mb-8 border border-white border-r-0 border-l-0 flex items-center justify-between'>
                 <p className='text-xl my-2'>Total</p>
-                <h5 className='text-xl font-semibold my-2'>{selectCategory ? (presale ? parseFloat(selectCategory.presale) * parseInt(mintAmount) : parseFloat(selectCategory.price) * parseInt(mintAmount)) : 0.0} MATIC</h5>
+                <h5 className='text-xl font-semibold my-2'>{selectCategory ? (presale ? parseFloat(selectCategory.presale) * parseInt(mintAmount) : parseFloat(selectCategory.price) * parseInt(mintAmount)) : 0.0} ETH</h5>
             </div>
 
             <div className='mb-8'>
@@ -193,7 +195,7 @@ const Minter = () => {
                             Minting
                         </button>
                     ) : (
-                        <button className='uppercase bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' type="submit">Mint</button>
+                        <button disabled className='uppercase bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' type="submit">Mint</button>
                     )
                 }
                 
