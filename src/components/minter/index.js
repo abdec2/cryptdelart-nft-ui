@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import infoImage from './../../assets/bg.jpg'
+import infoImage from './../../assets/bg.jpeg'
 import categoriesOpt from './../../abi/categories.json'
 import { GlobalContext } from '../../context/GlobalContext';
 import { ethers } from "ethers"; 
@@ -137,7 +137,7 @@ const Minter = () => {
 
   return (
     <div className="bg-black bg-opacity-50 rounded-lg p-8 text-white text-sm text-center">
-        USERS MUST BE ON POLYGON MAINNET AND NOT ETHEREUM !
+        USERS MUST BE ON ETHEREUM MAINNET!
         <div className="minter-wrapper">
             <div className="minter-info mt-5 mb-8 border border-white p-3 rounded-xl flex items-center justify-between">
                 <img src={infoImage} alt="" className='w-[82px] h-[82px] rounded-[10px]'/>
@@ -202,10 +202,10 @@ const Minter = () => {
             </div>
             </form>
 
-            <div className='helptxt'>
+            {/* <div className='helptxt'>
                 <p className=''>ADD POLYGON NETWORK</p>
                 <p className=''>🔔 Fast Method: Visit https://chainlist.org/ through metamask in-app browser or chrome extension and search Polygon. Click "Connect Wallet" on Polygon Mainnet and it will automatically add the network to your MetaMask.</p>
-            </div>
+            </div> */}
         </div>
 
     </div>
