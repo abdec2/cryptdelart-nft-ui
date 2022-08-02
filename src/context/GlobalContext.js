@@ -7,22 +7,8 @@ const initialState = {
     account: null,
     web3Provider: null,
     presale: true,
-    price: {
-        "0" : 600,
-        "1" : 1000,
-        "2" : 1500,
-        "3" : 3000,
-        "4" : 10000,
-        "5" : 100000
-    }, 
-    presalePrice: {
-        "0" : 480,
-        "1" : 800,
-        "2" : 1200,
-        "3" : 2400,
-        "4" : 8000,
-        "5" : 80000
-    }
+    price: 600, 
+    presalePrice: 480
     
 }
 

@@ -23,41 +23,11 @@ const Minter = () => {
         {
             label: 'Swimsuit',
             value: '0', 
-            price: 0.2, 
-            presale: 0.2
-            // price: ethers.utils.formatEther(price["0"]), 
-            // presale: ethers.utils.formatEther(presalePrice["0"])
-        },
-        // {
-        //     label: 'Sleepwear',
-        //     value: '1', 
-        //     price: ethers.utils.formatEther(price["1"]),
-        //     presale: ethers.utils.formatEther(presalePrice["1"])
-        // },
-        // {
-        //     label: 'Sports wear',
-        //     value: '2', 
-        //     price: ethers.utils.formatEther(price["2"]),
-        //     presale: ethers.utils.formatEther(presalePrice["2"])
-        // },
-        // {
-        //     label: 'Casual Style',
-        //     value: '3', 
-        //     price: ethers.utils.formatEther(price["3"]),
-        //     presale: ethers.utils.formatEther(presalePrice["3"])
-        // },
-        // {
-        //     label: 'Elegant Style',
-        //     value: '4', 
-        //     price: ethers.utils.formatEther(price["4"]),
-        //     presale: ethers.utils.formatEther(presalePrice["4"])
-        // },
-        // {
-        //     label: 'Exotic Style',
-        //     value: '5', 
-        //     price: ethers.utils.formatEther(price["5"]),
-        //     presale: ethers.utils.formatEther(presalePrice["5"])
-        // }
+            // price: 0.2, 
+            // presale: 0.2
+            price: ethers.utils.formatEther(price), 
+            presale: ethers.utils.formatEther(presalePrice)
+        }
         
     ];
 
@@ -112,16 +82,24 @@ const Minter = () => {
 
             const signer = web3Provider.getSigner()
             const contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS, ABI, signer)
-            const estimateGas = await contract.estimateGas.mint(_category.value, tokenId, {value: ethers.utils.parseEther(nftPrice)})
+            const estimateGas = await contract.estimateGas.mint(tokenId, {value: ethers.utils.parseEther(nftPrice)})
             console.log(estimateGas.toString())
             const tx = {
                 gasLimit: estimateGas.toString(),
                 value: ethers.utils.parseEther(nftPrice)
             }
 
-            const minttx = await contract.mint(_category.value, tokenId, tx)
+            const minttx = await contract.mint(tokenId, tx)
             await minttx.wait()
             setLoading(false)
+            MySwal.fire({
+                icon: 'success',
+                text: "NFT minted successfully",
+                showConfirmButton: false,
+                timer: 1500
+                
+            })
+
         } catch(e) {
             console.log(e)
             MySwal.fire({
@@ -195,7 +173,7 @@ const Minter = () => {
                             Minting
                         </button>
                     ) : (
-                        <button disabled className='uppercase bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' type="submit">Mint</button>
+                        <button className='uppercase bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' type="submit">Mint</button>
                     )
                 }
                 

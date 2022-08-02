@@ -72,9 +72,9 @@ const HeaderComponent = ({ setError, setErrMsg }) => {
 
           <div className=''>
             {account ? (
-              <button disabled className='uppercase bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' onClick={disconnect}>{account.slice(0, 5) + '...' + account.slice(38, 42)}</button>
+              <button className='uppercase bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' onClick={disconnect}>{account.slice(0, 5) + '...' + account.slice(38, 42)}</button>
             ) : (
-              <button disabled className='uppercase bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' onClick={connectWallet}>Connect Wallet</button>
+              <button className='uppercase bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' onClick={connectWallet}>Connect Wallet</button>
             )}
           </div>
         </div>
