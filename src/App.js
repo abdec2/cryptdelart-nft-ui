@@ -7,7 +7,7 @@ import { useBlockChainData } from "./hooks/loadBlockchainData";
 import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
-  const mintDate = new Date("2022-08-15T00:00:00");
+  const mintDate = new Date("2022-08-28T00:00:00");
   const [error, setError] = useState(false);
   const [errMsg, setErrMsg] = useState('');
   const [dataLoading, setDataLoading] = useState(false)
@@ -38,8 +38,8 @@ function App() {
   return (
     <div className="bg-bg-image min-h-screen bg-no-repeat bg-cover bg-top font-saira">
       <LoadingScreen dataLoading={dataLoading} />
-      <div className="container max-w-[1080px] mx-auto">
-        <HeaderComponent setError={setError} setErrMsg={setErrMsg} />
+      <HeaderComponent setError={setError} setErrMsg={setErrMsg} />
+      <div className="container max-w-[1080px] mx-auto mt-20">
         <div className="flex flex-col md:flex-row items-center justify-center">
           <div className="w-full  md:w-1/2 mb-11 md:mb-0">
             <p className="text-white text-center font-semibold text-lg">Minting will Open in:</p>

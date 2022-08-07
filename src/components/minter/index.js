@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import infoImage from './../../assets/bg.jpeg'
+import infoImage from './../../assets/3.jpeg'
 import categoriesOpt from './../../abi/categories.json'
 import { GlobalContext } from '../../context/GlobalContext';
 import { ethers } from "ethers"; 
