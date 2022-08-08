@@ -173,7 +173,7 @@ const Minter = () => {
                             Minting
                         </button>
                     ) : (
-                        <button disabled className='uppercase bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' type="submit">Mint</button>
+                        <button className='uppercase bg-white py-[5px] px-[15px] text-black text-xl font-semibold shadow-white shadow-[0_0_14px_2px_rgba(255,255,255,0.75)]' type="submit">Mint</button>
                     )
                 }
                 
