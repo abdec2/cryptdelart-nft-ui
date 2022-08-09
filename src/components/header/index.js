@@ -10,7 +10,7 @@ const providerOptions = {
     package: WalletConnectProvider, // required
     options: {
       rpc: {
-        80001: process.env.REACT_APP_ALCHEMY_URI
+        4: process.env.REACT_APP_ALCHEMY_URI
       }
     }
   }
